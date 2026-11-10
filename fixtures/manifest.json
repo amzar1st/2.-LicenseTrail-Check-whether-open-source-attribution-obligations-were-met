@@ -1,0 +1,36 @@
+{
+  "release": "licensetrail-demo@1.0.0",
+  "notices": {
+    "url": "fixtures/NOTICE.txt",
+    "sha256": "3016ed16df4f1ba1945605e4a6330e0340c68fb7a8718546370ea00523ffac66"
+  },
+  "dependencies": [
+    {
+      "id": "demo-complete@1.0.0",
+      "declared_license": "MIT",
+      "license": {
+        "url": "https://raw.githubusercontent.com/amzar1st/2.-LicenseTrail-Check-whether-open-source-attribution-obligations-were-met/fabbbcdc2a6de3484f82aa85e499d84d0c27de5c/fixtures/MIT.txt",
+        "sha256": "4af07635a723b25b91ea048c8a7c0577fe92db753cc87fedb4971c25208de764"
+      },
+      "upstream_notice": null
+    },
+    {
+      "id": "demo-missing@1.0.0",
+      "declared_license": "MIT",
+      "license": {
+        "url": "https://raw.githubusercontent.com/amzar1st/2.-LicenseTrail-Check-whether-open-source-attribution-obligations-were-met/fabbbcdc2a6de3484f82aa85e499d84d0c27de5c/fixtures/MIT-missing.txt",
+        "sha256": "3a4be317c1c7fe6dc4a17f98258738bea54e80dc229ce8d64920e37652f63304"
+      },
+      "upstream_notice": null
+    },
+    {
+      "id": "demo-conflict@1.0.0",
+      "declared_license": "BSD-2-Clause",
+      "license": {
+        "url": "https://raw.githubusercontent.com/amzar1st/2.-LicenseTrail-Check-whether-open-source-attribution-obligations-were-met/fabbbcdc2a6de3484f82aa85e499d84d0c27de5c/fixtures/MIT.txt",
+        "sha256": "4af07635a723b25b91ea048c8a7c0577fe92db753cc87fedb4971c25208de764"
+      },
+      "upstream_notice": null
+    }
+  ]
+}
