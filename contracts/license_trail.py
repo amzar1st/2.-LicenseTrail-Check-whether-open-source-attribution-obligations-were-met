@@ -36,7 +36,8 @@ def pin(ref):
 
 def read(ref, fetch):
     try:
-        body = fetch(pin(ref))
+        url = pin(ref)
+        body = fetch_file(url) if fetch is None else fetch(url)
         if not isinstance(body, bytes) or not 0 < len(body) <= MAX_BYTES:
             return None, "INVALID_SIZE"
         observed = digest(body)
@@ -117,7 +118,7 @@ def finding(row, notices, fetch, judge):
         elif not upstream or normalized(upstream) in shipped:
             outcome, reason = "COMPLETE", "REQUIRED_TEXT_PRESENT"
         else:
-            outcome, reason = judge(upstream, notices)
+            outcome, reason = compare_notice(upstream, notices) if judge is None else judge(upstream, notices)
     return {
         **row,
         "observed_license": observed,
@@ -128,7 +129,7 @@ def finding(row, notices, fetch, judge):
     }
 
 
-def review(ref, fetch, judge):
+def review(ref, fetch=None, judge=None):
     text, fingerprint = read(ref, fetch)
     result = {"policy": POLICY, "manifest": ref, "manifest_fingerprint": fingerprint, "release": None,
               "notices": None, "notices_fingerprint": None, "findings": [], "status": "INCONCLUSIVE"}
@@ -156,7 +157,7 @@ def review(ref, fetch, judge):
 
 def fetch_file(url):
     response = gl.nondet.web.get(url)
-    if response.status_code != 200:
+    if response.status != 200:
         raise ValueError("Evidence HTTP error")
     return response.body
 
@@ -204,7 +205,7 @@ class LicenseTrail(gl.Contract):
             return review_id
 
         def evaluate():
-            return review(ref, fetch_file, compare_notice)
+            return review(ref)
 
         reviewed = json.loads(gl.eq_principle.strict_eq(evaluate))
         reviewed["review_id"] = review_id

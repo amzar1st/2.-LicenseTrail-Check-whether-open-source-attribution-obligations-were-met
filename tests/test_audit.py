@@ -33,6 +33,11 @@ class ReviewTests(unittest.TestCase):
         return json.loads(audit.review(self.ref, self.fixture.__getitem__,
                                        lambda *_: self.fail("Unexpected semantic comparison")))
 
+    def test_pinned_sdk_response_status(self):
+        stub.nondet = SimpleNamespace(web=SimpleNamespace(
+            get=lambda _: SimpleNamespace(status=200, body=b"evidence")))
+        self.assertEqual(audit.fetch_file(self.ref["url"]), b"evidence")
+
     def test_three_way_demo(self):
         result = self.evaluate()
         self.assertEqual(result["status"], "ACTION_REQUIRED")
