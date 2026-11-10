@@ -2,6 +2,6 @@
   "address": "0xfF414ff367F24a64B44593eF8a162a420894239b",
   "manifest": "https://raw.githubusercontent.com/amzar1st/2.-LicenseTrail-Check-whether-open-source-attribution-obligations-were-met/4bc46b365fb1a4a46e6535491c6067404a508871/fixtures/manifest.json",
   "sha256": "af967a784ebacb56568ea9e24d947b769976db51aa304ab6bab0b9389df94c1f",
-  "sourceCommit": "4bc46b365fb1a4a46e6535491c6067404a508871",
-  "demoTransaction": "0x58634dae8955bd3e3cd07741ed8bd611303a9966afab1c0a06aec1335a47bf50"
+  "sourceCommit": "0d966d17260414a636262ec2944dccb1e49a0a70",
+  "demoTransaction": "0x58a47cf6597c02808e26122ef0d382e23168ab115c0b7a6053a9f5c6912867a8"
 }

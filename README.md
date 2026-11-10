@@ -8,7 +8,7 @@ LicenseTrail reports on the submitted evidence and review policy. It cannot atte
 
 1. Commit the shipped notices and a manifest following [the fixture schema](fixtures/manifest.json). Use raw GitHub URLs containing full commit IDs for upstream evidence. The shipped notice can use a path relative to the root of the manifest's commit.
 2. Compute the manifest's SHA-256 from the exact raw bytes. In Studio Run and Debug, use the built-in account to call `audit(manifest_url, manifest_sha256)` in Normal (Full Consensus) mode.
-3. Open the dashboard, enter the same evidence coordinates, and read the finalized report. Paste the transaction hash to track status separately from execution. A successful transaction can record an inconclusive result.
+3. Open the [public dashboard](https://licensetrail.tinymule33.chatgpt.site/), enter the same evidence coordinates, and read the finalized report. Paste the transaction hash to track status separately from execution. A successful transaction can record an inconclusive result.
 4. See [live verification](docs/LIVE_VERIFICATION.md) for the deployed address, transactions, and current demo results.
 
 ## Policy

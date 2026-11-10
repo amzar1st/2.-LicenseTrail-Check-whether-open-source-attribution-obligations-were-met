@@ -10,6 +10,7 @@ const explorer = 'https://explorer-studio.genlayer.com';
 const repository = 'https://github.com/' + config.manifest.split('/').slice(3, 5).join('/');
 ui('repo').href = repository;
 ui('source').href = `${repository}/blob/${config.sourceCommit}/contracts/license_trail.py`;
+ui('studio').href = 'https://studio.genlayer.com/?import-contract=' + config.address;
 ui('contract').href = `${explorer}/address/${config.address}`;
 let reportRequest = 0;
 let trackingRequest = 0;

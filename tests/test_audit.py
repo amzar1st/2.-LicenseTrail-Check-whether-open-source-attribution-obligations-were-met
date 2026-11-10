@@ -69,7 +69,7 @@ class ReviewTests(unittest.TestCase):
 
     def test_mutable_urls_and_path_traversal(self):
         url = self.ref["url"]
-        for candidate in (url.replace(self.config["sourceCommit"], "main"), url + "?raw=1",
+        for candidate in (url.replace(url.split("/")[5], "main"), url + "?raw=1",
                           url.replace("fixtures/", "../fixtures/"), url.replace("raw.githubusercontent.com", "localhost")):
             with self.subTest(candidate=candidate), self.assertRaises(ValueError):
                 audit.pin({"url": candidate, "sha256": self.ref["sha256"]})

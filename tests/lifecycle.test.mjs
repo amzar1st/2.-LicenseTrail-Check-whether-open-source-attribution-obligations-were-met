@@ -10,7 +10,7 @@ test('derives the same identifier as the live Studio transaction', async () => {
 });
 test('requires immutable GitHub evidence', () => {
   assert.equal(pinnedUrl(config.manifest), true);
-  assert.equal(pinnedUrl(config.manifest.replace(config.sourceCommit, 'main')), false);
+  assert.equal(pinnedUrl(config.manifest.replace(config.manifest.split('/')[5], 'main')), false);
   assert.equal(pinnedUrl(config.manifest + '?raw=true'), false);
 });
 test('separates accepted state from finalized execution', () => {
