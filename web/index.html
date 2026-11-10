@@ -1,0 +1,53 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="description" content="Inspect release attribution evidence and validator findings on GenLayer Studionet.">
+<title>LicenseTrail · Release attribution</title>
+<link rel="stylesheet" href="./style.css">
+<script type="module" src="./app.js"></script>
+</head>
+<body>
+<header><a class="brand" href="./">License<span>Trail</span></a><span class="network">● GenLayer Studionet</span></header>
+<main>
+  <section class="hero">
+    <p class="eyebrow">RELEASE EVIDENCE / 01</p>
+    <h1>Trace the notice.<br><em>Verify the release.</em></h1>
+    <p class="intro">GenLayer validators independently check the license and attribution files declared for a specific software release.</p>
+    <div class="actions"><button id="demo">Load live demo</button><a id="contract" class="secondary" target="_blank" rel="noopener noreferrer">View contract ↗</a></div>
+  </section>
+  <div class="workspace">
+    <section class="panel" aria-labelledby="input-title">
+      <p class="eyebrow">01 / INPUT</p>
+      <h2 id="input-title">Review a release</h2>
+      <form id="form">
+        <label for="manifest">Commit-pinned manifest URL</label>
+        <input id="manifest" type="url" required spellcheck="false" placeholder="https://raw.githubusercontent.com/…">
+        <label for="digest">Manifest SHA-256</label>
+        <input id="digest" required pattern="[0-9a-fA-F]{64}" maxlength="64" spellcheck="false" placeholder="64 hex characters">
+        <div class="actions"><button type="submit">Read finalized report</button></div>
+      </form>
+      <details><summary>Submit with the Studio wallet</summary>
+        <p>Open the deployed contract in Studio Run and Debug. Use the built-in account to call <code>audit</code> with the URL and SHA-256 above. Paste the resulting transaction hash here to track consensus.</p>
+        <p><a href="https://studio.genlayer.com/run-debug" target="_blank" rel="noopener noreferrer">Open Studio ↗</a> · <a id="source" target="_blank" rel="noopener noreferrer">Contract source ↗</a></p>
+      </details>
+      <form id="track">
+        <label for="hash">Studio transaction hash</label>
+        <input id="hash" pattern="0x[0-9a-fA-F]{64}" maxlength="66" spellcheck="false" required placeholder="0x…">
+        <button class="secondary" type="submit">Track transaction</button>
+      </form>
+      <p id="tx-status" role="status"></p>
+      <a id="tx-link" target="_blank" rel="noopener noreferrer" hidden>Open explorer receipt ↗</a>
+    </section>
+    <section class="panel" aria-labelledby="report-title">
+      <p class="eyebrow">02 / FINDINGS</p>
+      <h2 id="report-title">Validator report</h2>
+      <p id="report-status" role="status">Load the demo or look up a manifest to view the finalized report.</p>
+      <div id="report"></div>
+    </section>
+  </div>
+</main>
+<footer>LicenseTrail · Evidence review under a fixed attribution policy · <a id="repo" target="_blank" rel="noopener noreferrer">GitHub ↗</a></footer>
+</body>
+</html>
